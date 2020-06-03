@@ -1,7 +1,8 @@
-var browserHeight = 8;
+var browserHeight = 56;
 
 if (window.innerWidth <= 414) {
   $(".website-wrapper").height(window.innerHeight - browserHeight);
+  console.log(browserHeight);
 }
 
 window.addEventListener("resize", () => {
