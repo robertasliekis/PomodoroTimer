@@ -845,11 +845,12 @@ body {
             user-select: none;
   }
   .about-window {
+    height: 97%;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
     padding: 1rem;
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
   .about-window h1 {
     text-align: left;
@@ -893,8 +894,8 @@ body {
     top: 0rem;
   }
   .about-window .buttons-container .btn-close {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     font-size: 2rem;
     margin: 0;
   }

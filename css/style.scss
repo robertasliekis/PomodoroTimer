@@ -583,9 +583,10 @@ body {
   }
 
   .about-window {
+    height: 97%;
     align-items: flex-start;
     padding: 1rem;
-    padding-top: 6rem;
+    padding-top: 3rem;
     h1 {
       text-align: left;
       margin: 0;
@@ -619,8 +620,8 @@ body {
       @include flexCenter();
       top: 0rem;
       .btn-close {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         font-size: 2rem;
         margin: 0;
       }
