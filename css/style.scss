@@ -586,8 +586,9 @@ body {
     z-index: 2;
     height: 97%;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 1rem;
-    padding-top: 3rem;
+    padding-top: 4rem;
     h1 {
       text-align: left;
       margin: 0;
@@ -606,11 +607,13 @@ body {
       line-height: 1.2rem;
     }
     ul {
+      font-size: 1rem;
+
       margin-left: 1rem;
       margin-bottom: 1rem;
       font-weight: 400;
       li {
-        line-height: 1.2rem;
+        line-height: 1.1rem;
       }
     }
     .repeat {
@@ -625,6 +628,7 @@ body {
         height: 3rem;
         font-size: 2rem;
         margin: 0;
+        margin-top: -0.5rem;
       }
     }
   }
