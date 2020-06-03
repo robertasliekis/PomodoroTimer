@@ -1,12 +1,12 @@
 if (window.innerWidth <= 414) {
-  $(".website-wrapper").height(window.innerHeight - 56);
+  $(".website-wrapper").height(window.innerHeight - 28);
 }
 
 window.addEventListener("resize", () => {
   $(".website-wrapper").height("100%");
 
   if (window.innerWidth <= 414) {
-    $(".website-wrapper").height(window.innerHeight);
+    $(".website-wrapper").height(window.innerHeight - 28);
   }
 });
 
