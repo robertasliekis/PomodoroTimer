@@ -1,7 +1,7 @@
-var browserHeight = 36;
+var browserHeight = 56;
 
 if (window.innerWidth <= 414) {
-  $(".website-wrapper").height(window.innerHeight - browserHeight);
+  $(".website-wrapper").height(window.outerHeight - browserHeight);
   console.log(browserHeight);
 }
 
@@ -9,7 +9,7 @@ window.addEventListener("resize", () => {
   $(".website-wrapper").height("100%");
 
   if (window.innerWidth <= 414) {
-    $(".website-wrapper").height(window.innerHeight - browserHeight);
+    $(".website-wrapper").height(window.outerHeight - browserHeight);
   }
 });
 
