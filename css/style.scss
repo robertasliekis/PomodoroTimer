@@ -1,0 +1,789 @@
+//Global values start
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --scroll-bar-width: 17px;
+  --global-tomato-color: rgb(231, 118, 137);
+}
+
+img {
+  display: block;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  font-weight: 200;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+label,
+input,
+textarea {
+  font-family: "Barlow", Helvetica, Sans-Serif;
+  font-size: 1.1rem;
+}
+
+input {
+  font-weight: 200;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Barlow", Helvetica, Sans-Serif;
+  font-weight: 200;
+  font-size: 1.1rem;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterColumn {
+  @include flexCenter();
+  flex-direction: column;
+}
+
+@mixin flexCenterBetween {
+  @include flexCenter();
+  justify-content: space-between;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+//Global values end
+
+//Website body start
+.website-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include flexCenterColumn();
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: var(--global-tomato-color);
+  padding: 2rem 0;
+}
+
+.website-title {
+  font-size: 4rem;
+  color: white;
+  font-weight: 500;
+}
+
+.buttons-container {
+  @include flexCenterBetween();
+  .btn {
+    @include flexCenter();
+    background-color: white;
+    color: var(--global-tomato-color);
+    padding: 1rem 0;
+    margin: 0 1rem;
+    width: 18rem;
+    border-radius: 3rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    border: 3px solid white;
+    font-size: 1.3rem;
+    user-select: none;
+  }
+}
+.btn-clicked {
+  border: 3px solid white !important;
+  background-color: rgb(187, 88, 105) !important;
+  color: white !important;
+}
+
+.buttons-top {
+  .btn {
+    width: 22rem;
+  }
+}
+
+.timer-container {
+  @include flexCenterColumn();
+  height: auto;
+  width: 100%;
+  .timer-circle-container {
+    position: relative;
+    .timer-circle {
+      height: 408px;
+      width: 408px;
+      transform: rotate(-90deg);
+      background-color: rgba($color: #ffffff, $alpha: 0.1);
+      border-radius: 12rem;
+
+      .progress-bar {
+        fill: none;
+        stroke: white;
+        stroke-dashoffset: 0px;
+        stroke-dasharray: 1258px;
+        stroke-width: 8px;
+        animation-play-state: paused;
+      }
+      .progress-bar-animation {
+        animation: progress-bar-keyframes linear;
+      }
+      .progress-bar-animation2 {
+        animation: progress-bar-keyframes2 linear;
+      }
+      @keyframes progress-bar-keyframes {
+        0% {
+          stroke-dashoffset: 0;
+        }
+        100% {
+          stroke-dashoffset: 1258px;
+        }
+      }
+      @keyframes progress-bar-keyframes2 {
+        0% {
+          stroke-dashoffset: 0;
+        }
+        100% {
+          stroke-dashoffset: 1258px;
+        }
+      }
+    }
+
+    .timer-count {
+      @include absoluteCenter();
+      top: 45%;
+      font-size: 5rem;
+      color: white;
+      font-weight: 400;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+
+      .timer-minutes {
+        @include absoluteCenter();
+        transform: translate(-100%, -50%);
+        left: 48%;
+        user-select: none;
+      }
+      .sign-between {
+        @include absoluteCenter();
+      }
+      .timer-seconds {
+        @include absoluteCenter();
+        transform: translate(-0%, -50%);
+        left: 52%;
+        user-select: none;
+      }
+    }
+    .timer-title {
+      @include absoluteCenter();
+      top: 60%;
+      .title {
+        display: none;
+        color: white;
+        font-size: 2rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .title-visible {
+        display: block;
+      }
+    }
+  }
+  .timer-buttons {
+    @include flexCenter();
+    margin-top: 1rem;
+    .btn {
+      position: relative;
+      @include flexCenter();
+      font-size: 2.5rem;
+      color: white;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: 0.3s all ease;
+      background-color: white;
+      height: 5rem;
+      width: 5rem;
+      border-radius: 3rem;
+      border: 4px solid white;
+
+      .icon {
+        transition: 0.3s all ease;
+        color: var(--global-tomato-color);
+      }
+      .icon-pause {
+        @include absoluteCenter();
+        opacity: 0;
+      }
+      .icon-play {
+        opacity: 0;
+      }
+    }
+    .btn:hover {
+      background-color: var(--global-tomato-color);
+      .icon {
+        color: white;
+      }
+    }
+  }
+}
+
+.item-visible {
+  opacity: 1 !important;
+}
+
+.info-window {
+  z-index: -1;
+  @include flexCenterColumn();
+  @include absoluteCenter();
+  background-color: var(--global-tomato-color);
+  border: 4px solid white;
+  color: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  width: auto;
+  h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .line {
+    @include flexCenterBetween();
+    height: 3rem;
+    margin-top: 1rem;
+    label {
+      @include flexCenter();
+      display: inline-block;
+      width: 15rem;
+      font-size: 2rem;
+      font-weight: 500;
+      height: 100%;
+      user-select: none;
+    }
+    input {
+      border: none;
+      outline: none;
+      height: 100%;
+      width: 7rem;
+      font-size: 2rem;
+      border-radius: 1rem;
+      padding-left: 1rem;
+      font-weight: 500;
+      color: black;
+    }
+
+    .spinners {
+      margin-left: 0.5rem;
+      height: 100%;
+      @include flexCenterColumn();
+      justify-content: space-between;
+      .spinner {
+        @include flexCenter();
+        background-color: white;
+        color: var(--global-tomato-color);
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .buttons-container {
+    @include flexCenterBetween();
+    width: 100%;
+    margin-top: 1rem;
+    .btn {
+      width: 10rem;
+      user-select: none;
+    }
+  }
+}
+
+.about-window {
+  width: auto;
+  align-items: flex-start;
+  h1 {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 2rem;
+    padding-right: 7rem;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  p {
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+  ul {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    li {
+      text-align: justify;
+    }
+  }
+  .repeat {
+    font-size: 1.5rem;
+  }
+  .buttons-container {
+    justify-content: flex-end;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    .btn-close {
+      transform: rotate(45deg);
+      width: 4rem;
+      height: 4rem;
+      font-size: 2rem;
+      margin-right: 2rem;
+    }
+  }
+}
+
+.alert-message-window {
+  padding: 2rem 2rem;
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .buttons-container {
+    @include flexCenter();
+  }
+}
+
+.info-window-visible {
+  z-index: 2 !important;
+}
+
+@media only screen and (max-width: 1450px) {
+  .buttons-container {
+    justify-content: center;
+    width: 100%;
+    .btn {
+      width: 20%;
+    }
+  }
+
+  .buttons-top {
+    .btn {
+      width: 22rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .buttons-container {
+    .btn-clicked:hover {
+      border: 3px solid white;
+      background-color: rgb(187, 88, 105);
+      color: white;
+    }
+    .btn:hover {
+      border: 3px solid white;
+      background-color: transparent;
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .website-wrapper {
+    padding: 6rem 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .website-wrapper {
+    padding: 2rem 0;
+  }
+  .buttons-top {
+    .btn {
+      width: 19rem;
+    }
+  }
+
+  .buttons-bottom {
+    flex-wrap: wrap;
+    .btn {
+      width: 45%;
+    }
+    .btn:nth-child(1),
+    .btn:nth-child(2) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .about-window {
+    width: 95%;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .website-wrapper {
+    padding: 1rem 0;
+  }
+  .website-title {
+    font-size: 2.5rem;
+  }
+
+  .buttons-container {
+    .btn {
+      font-size: 1rem;
+      height: 2rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .buttons-top {
+    .btn {
+      width: 10rem;
+    }
+  }
+
+  .timer-container {
+    height: auto;
+    width: 100%;
+    .timer-circle-container {
+      .timer-circle {
+        height: 350px;
+        width: 350px;
+        .progress-bar {
+          stroke-dasharray: 500px;
+        }
+        @keyframes progress-bar-keyframes {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+        @keyframes progress-bar-keyframes2 {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+      }
+      .timer-count {
+        top: 40%;
+      }
+      .timer-title {
+        top: 60%;
+      }
+    }
+
+    .timer-buttons {
+      margin-top: 1rem;
+      .btn {
+        font-size: 2rem;
+        color: white;
+        margin: 0 0.5rem;
+        height: 4rem;
+        width: 4rem;
+      }
+    }
+  }
+
+  .custom-timer-window {
+    width: 95%;
+    padding: 1rem 0;
+    border-radius: 1.5rem;
+    h1 {
+      font-size: 2.2rem;
+      width: 100%;
+    }
+    .line {
+      margin-top: 1rem;
+      label {
+        @include flexCenter();
+        justify-content: flex-start;
+        width: 12rem;
+        font-size: 1.5rem;
+      }
+      input {
+        border: none;
+        outline: none;
+        height: 100%;
+        width: 6rem;
+        font-size: 2rem;
+        border-radius: 1rem;
+        padding-left: 1rem;
+        font-weight: 500;
+        color: black;
+      }
+
+      .spinners {
+        margin-left: 0.5rem;
+        height: 100%;
+        @include flexCenterColumn();
+        justify-content: space-between;
+        .spinner {
+          @include flexCenter();
+          background-color: white;
+          color: var(--global-tomato-color);
+          width: 1.4rem;
+          height: 1.4rem;
+          border-radius: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttons-container {
+      @include flexCenterBetween();
+      width: 100%;
+      margin-top: 1rem;
+      .btn {
+        width: 10rem;
+        user-select: none;
+      }
+    }
+  }
+
+  .about-window {
+    align-items: flex-start;
+    padding: 1rem;
+    padding-top: 6rem;
+    h1 {
+      text-align: left;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+      line-height: 1.2rem;
+    }
+    ul {
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      li {
+        line-height: 1.2rem;
+      }
+    }
+    .repeat {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    .buttons-container {
+      @include flexCenter();
+      top: 0rem;
+      .btn-close {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .alert-message-window {
+    width: 95%;
+    padding: 2rem 0;
+    h1 {
+      font-size: 1.8rem;
+    }
+    .buttons-container {
+      @include flexCenter();
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .website-wrapper {
+    padding-top: 0.5rem;
+  }
+
+  .timer-container {
+    .timer-circle-container {
+      .timer-circle {
+        height: 330px;
+        width: 330px;
+        .progress-bar {
+          stroke-dasharray: 500px;
+        }
+        @keyframes progress-bar-keyframes {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+        @keyframes progress-bar-keyframes2 {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+      }
+    }
+
+    .timer-buttons {
+      margin-top: 0.5rem;
+      .btn {
+        font-size: 1.7rem;
+        height: 3.5rem;
+        width: 3.5rem;
+      }
+    }
+  }
+
+  .custom-timer-window {
+    h1 {
+      font-size: 2rem;
+    }
+    .line {
+      label {
+        width: 10.5rem;
+      }
+      input {
+        width: 5.5rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .website-title {
+    font-size: 1.5rem;
+  }
+
+  .timer-container {
+    .timer-circle-container {
+      .timer-circle {
+        height: 280px;
+        width: 280px;
+        .progress-bar {
+          stroke-dasharray: 500px;
+        }
+        @keyframes progress-bar-keyframes {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+        @keyframes progress-bar-keyframes2 {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: 1258px;
+          }
+        }
+      }
+    }
+
+    .timer-buttons {
+      margin-top: 0.3rem;
+      .btn {
+        font-size: 1.7rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+
+  .buttons-container {
+    .btn {
+      width: 45%;
+      margin: 0 0.2rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .buttons-top {
+    .btn {
+      width: 45%;
+    }
+  }
+
+  .custom-timer-window {
+    h1 {
+      font-size: 1.7rem;
+    }
+    .line {
+      label {
+        font-size: 1.3rem;
+        width: 9rem;
+      }
+      input {
+        width: 5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .alert-message-window {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .buttons-container {
+    .btn {
+      padding: 0.5rem 0;
+    }
+  }
+}

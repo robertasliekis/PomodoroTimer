@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="Online roulette game." />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+  </head>
+  <body class="index">
+    <div class="website-wrapper" id="website-wrapper">
+      <div class="website-title">POMODORO TIMER</div>
+      <div class="buttons-top buttons-container">
+        <div class="btn btn-custom-timer">CUSTOM TIMER</div>
+        <div class="btn btn-about">ABOUT POMODORO</div>
+      </div>
+      <div class="timer-container">
+        <div class="timer-circle-container">
+          <svg class="timer-circle">
+            <circle class="progress-bar" id="progress-bar" cx="50%" cy="50%" r="200"></circle>
+          </svg>
+          <div class="timer-count">
+            <div class="timer-minutes"></div>
+            <div class="sign-between">:</div>
+            <div class="timer-seconds"></div>
+          </div>
+          <div class="timer-title">
+            <div class="title title1">POMODORO</div>
+            <div class="title title2">SHORT BREAK</div>
+            <div class="title title3">LONG BREAK</div>
+            <div class="title title4 title-visible">POMODORO</div>
+          </div>
+        </div>
+
+        <div class="timer-buttons">
+          <div class="btn btn-play-pause">
+            <i class="fas fa-play icon icon-play item-visible"></i>
+            <i class="fas fa-pause icon icon-pause"></i>
+          </div>
+          <div class="btn btn-reset-clock"><i class="fas fa-undo icon icon-reset fa-rotate-90"></i></div>
+        </div>
+      </div>
+
+      <div class="buttons-bottom buttons-container">
+        <div class="btn btn-pomodoro btn-timer btn-timer1">POMODORO</div>
+        <div class="btn btn-short-break btn-timer btn-timer2">SHORT BREAK</div>
+        <div class="btn btn-long-break btn-timer btn-timer3">LONG BREAK</div>
+        <div class="btn btn-loop btn-timer btn-timer4 btn-clicked">LOOP</div>
+      </div>
+
+      <div class="custom-timer-window info-window">
+        <h1>SET CUSTOM TIMES</h1>
+        <div class="line line-pomodoro">
+          <label for="pomodoro-input">POMODORO</label><input type="text" name="" id="pomodoro-input" />
+          <div class="spinners">
+            <div class="spinner spinner-up spinner-up-pomodoro"><i class="fas fa-plus icon"></i></div>
+            <div class="spinner spinner-down spinner-down-pomodoro"><i class="fas fa-minus icon"></i></div>
+          </div>
+        </div>
+        <div class="line line-short-break">
+          <label for="short-input">SHORT BREAK</label><input type="text" name="" id="short-input" />
+          <div class="spinners">
+            <div class="spinner spinner-up spinner-up-short"><i class="fas fa-plus icon"></i></div>
+            <div class="spinner spinner-down spinner-down-short"><i class="fas fa-minus icon"></i></div>
+          </div>
+        </div>
+        <div class="line line-long-break">
+          <label for="long-input">LONG BREAK</label><input type="text" name="" id="long-input" />
+          <div class="spinners">
+            <div class="spinner spinner-up spinner-up-long"><i class="fas fa-plus icon"></i></div>
+            <div class="spinner spinner-down spinner-down-long"><i class="fas fa-minus icon"></i></div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <div class="btn btn-cancel">CANCEL</div>
+
+          <div class="btn btn-reset">RESET</div>
+          <div class="btn btn-save">SAVE</div>
+        </div>
+      </div>
+
+      <div class="alert-message-window info-window">
+        <h1>Incorrect number entry</h1>
+        <div class="buttons-container buttons-container">
+          <div class="btn btn-okey">OKEY</div>
+        </div>
+      </div>
+
+      <div class="about-window info-window">
+        <h1>WHAT IS POMODORO TIMER?</h1>
+        <h2>Online Pomodoro Timer</h2>
+        <p>It is a customizable and easy to use looping timer to boost your working efficiency.</p>
+        <h2>About Pomodoro Technique</h2>
+        <p>
+          Pomodoro™ Technique is a time management method developed by Francesco Cirillo in the late 1980s. This technique use timer to break down work into a set of intervals separated by breaks.
+          Pomodoro technique increases productivity by taking short scheduled breaks regularly.
+        </p>
+        <h2>How to use Pomodoro timers</h2>
+        <ul>
+          <li>Set timer to 25 minutes for one Pomodoro</li>
+          <li>Work on the task until timer is complete</li>
+          <li>After timer completion take a 5 minutes short break</li>
+          <li>After four Pomodoro's take a long break</li>
+          <li>Repeat from step 1</li>
+        </ul>
+        <p class="repeat">Use the loop button to do step 1 until step 4 in a row</p>
+        <div class="buttons-container">
+          <div class="btn btn-close"><i class="fas fa-plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script Source -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
