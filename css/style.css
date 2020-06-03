@@ -185,6 +185,8 @@ body {
 }
 
 .timer-container .timer-circle-container .timer-circle .progress-bar {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
   fill: none;
   stroke: white;
   stroke-dashoffset: 0px;
@@ -701,39 +703,8 @@ body {
     width: 350px;
   }
   .timer-container .timer-circle-container .timer-circle .progress-bar {
-    stroke-dasharray: 500px;
-  }
-  @-webkit-keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @-webkit-keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
   }
   .timer-container .timer-circle-container .timer-count {
     top: 40%;
@@ -933,39 +904,8 @@ body {
     width: 330px;
   }
   .timer-container .timer-circle-container .timer-circle .progress-bar {
-    stroke-dasharray: 500px;
-  }
-  @-webkit-keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @-webkit-keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
+    -webkit-transform: scale(0.81);
+            transform: scale(0.81);
   }
   .timer-container .timer-buttons {
     margin-top: 0.5rem;
@@ -995,39 +935,8 @@ body {
     width: 280px;
   }
   .timer-container .timer-circle-container .timer-circle .progress-bar {
-    stroke-dasharray: 500px;
-  }
-  @-webkit-keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @-webkit-keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
-  }
-  @keyframes progress-bar-keyframes2 {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: 1258px;
-    }
+    -webkit-transform: scale(0.68);
+            transform: scale(0.68);
   }
   .timer-container .timer-buttons {
     margin-top: 0.3rem;

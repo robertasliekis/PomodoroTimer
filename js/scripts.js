@@ -1,3 +1,15 @@
+if (window.innerWidth <= 1024) {
+  $(".website-wrapper").height(window.innerHeight - 56);
+}
+
+window.addEventListener("resize", () => {
+  $(".website-wrapper").height("100%");
+
+  if (window.innerWidth <= 1024) {
+    $(".website-wrapper").height(window.innerHeight - 56);
+  }
+});
+
 var pomodoroDefault = 2;
 var shortDefault = 1;
 var longDefault = 1;

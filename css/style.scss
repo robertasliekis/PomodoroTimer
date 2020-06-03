@@ -154,6 +154,7 @@ body {
       border-radius: 12rem;
 
       .progress-bar {
+        transform-origin: center center;
         fill: none;
         stroke: white;
         stroke-dashoffset: 0px;
@@ -493,23 +494,7 @@ body {
         height: 350px;
         width: 350px;
         .progress-bar {
-          stroke-dasharray: 500px;
-        }
-        @keyframes progress-bar-keyframes {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
-        }
-        @keyframes progress-bar-keyframes2 {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
+          transform: scale(0.85);
         }
       }
       .timer-count {
@@ -656,23 +641,7 @@ body {
         height: 330px;
         width: 330px;
         .progress-bar {
-          stroke-dasharray: 500px;
-        }
-        @keyframes progress-bar-keyframes {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
-        }
-        @keyframes progress-bar-keyframes2 {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
+          transform: scale(0.81);
         }
       }
     }
@@ -713,23 +682,7 @@ body {
         height: 280px;
         width: 280px;
         .progress-bar {
-          stroke-dasharray: 500px;
-        }
-        @keyframes progress-bar-keyframes {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
-        }
-        @keyframes progress-bar-keyframes2 {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: 1258px;
-          }
+          transform: scale(0.68);
         }
       }
     }
