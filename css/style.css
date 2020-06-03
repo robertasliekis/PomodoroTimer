@@ -68,9 +68,29 @@ body {
   font-size: 1.1rem;
 }
 
+.website-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .website-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -698,12 +718,12 @@ body {
     width: 100%;
   }
   .timer-container .timer-circle-container .timer-circle {
-    height: 350px;
-    width: 350px;
+    height: 330px;
+    width: 330px;
   }
   .timer-container .timer-circle-container .timer-circle .progress-bar {
-    -webkit-transform: scale(0.85);
-            transform: scale(0.85);
+    -webkit-transform: scale(0.81);
+            transform: scale(0.81);
   }
   .timer-container .timer-circle-container .timer-count {
     top: 40%;
@@ -712,7 +732,7 @@ body {
     top: 60%;
   }
   .timer-container .timer-buttons {
-    margin-top: 1rem;
+    margin-top: 0.2rem;
   }
   .timer-container .timer-buttons .btn {
     font-size: 2rem;
@@ -899,15 +919,15 @@ body {
     padding-top: 0.5rem;
   }
   .timer-container .timer-circle-container .timer-circle {
-    height: 330px;
-    width: 330px;
+    height: 300px;
+    width: 300px;
   }
   .timer-container .timer-circle-container .timer-circle .progress-bar {
-    -webkit-transform: scale(0.81);
-            transform: scale(0.81);
+    -webkit-transform: scale(0.73);
+            transform: scale(0.73);
   }
   .timer-container .timer-buttons {
-    margin-top: 0.5rem;
+    margin-top: 0rem;
   }
   .timer-container .timer-buttons .btn {
     font-size: 1.7rem;

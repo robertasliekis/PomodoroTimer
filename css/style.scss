@@ -92,9 +92,16 @@ body {
 //Global values end
 
 //Website body start
+.website-container {
+  @include flexCenterColumn();
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 .website-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
   @include flexCenterColumn();
   justify-content: space-between;
@@ -490,10 +497,10 @@ body {
     width: 100%;
     .timer-circle-container {
       .timer-circle {
-        height: 350px;
-        width: 350px;
+        height: 330px;
+        width: 330px;
         .progress-bar {
-          transform: scale(0.85);
+          transform: scale(0.81);
         }
       }
       .timer-count {
@@ -505,7 +512,7 @@ body {
     }
 
     .timer-buttons {
-      margin-top: 1rem;
+      margin-top: 0.2rem;
       .btn {
         font-size: 2rem;
         color: white;
@@ -637,16 +644,16 @@ body {
   .timer-container {
     .timer-circle-container {
       .timer-circle {
-        height: 330px;
-        width: 330px;
+        height: 300px;
+        width: 300px;
         .progress-bar {
-          transform: scale(0.81);
+          transform: scale(0.73);
         }
       }
     }
 
     .timer-buttons {
-      margin-top: 0.5rem;
+      margin-top: 0rem;
       .btn {
         font-size: 1.7rem;
         height: 3.5rem;
