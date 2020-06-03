@@ -1,4 +1,4 @@
-var browserHeight = 0;
+var browserHeight = 8;
 
 if (window.innerWidth <= 414) {
   $(".website-wrapper").height(window.innerHeight - browserHeight);
