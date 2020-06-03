@@ -1,14 +1,14 @@
 var browserHeight = 56;
 
 if (window.innerWidth <= 414) {
-  $(".website-container").height(window.outerHeight - browserHeight);
+  $(".website-container").height(window.innerHeight - browserHeight);
 }
 
 window.addEventListener("resize", () => {
   $(".website-container").height("100%");
 
   if (window.innerWidth <= 414) {
-    $(".website-container").height(window.outerHeight - browserHeight);
+    $(".website-container").height(window.innerHeight - browserHeight);
   }
 });
 
