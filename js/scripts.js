@@ -1,13 +1,18 @@
 var browserHeight = 0;
 
-if (window.innerWidth <= 414) {
+if (window.innerWidth > 1024) {
+  $(".website-container").height("100vh");
+}
+if (window.innerWidth <= 1024) {
   $(".website-container").height(window.innerHeight - browserHeight);
 }
 
 window.addEventListener("resize", () => {
-  //$(".website-container").height("100%");
+  if (window.innerWidth > 1024) {
+    $(".website-container").height("100vh");
+  }
 
-  if (window.innerWidth <= 414) {
+  if (window.innerWidth <= 1024) {
     $(".website-container").height(window.innerHeight - browserHeight);
   }
 });

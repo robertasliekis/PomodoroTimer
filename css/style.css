@@ -668,6 +668,12 @@ body {
     background-color: transparent;
     color: white;
   }
+  .timer-container .timer-buttons .btn:hover {
+    background-color: var(--global-tomato-color);
+  }
+  .timer-container .timer-buttons .btn:hover .icon {
+    color: white;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -845,7 +851,6 @@ body {
             user-select: none;
   }
   .about-window {
-    z-index: 2;
     height: 97%;
     -webkit-box-align: start;
         -ms-flex-align: start;
