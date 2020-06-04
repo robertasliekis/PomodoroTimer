@@ -119,6 +119,7 @@ body {
 .buttons-container {
   @include flexCenterBetween();
   .btn {
+    z-index: 1;
     @include flexCenter();
     background-color: white;
     color: var(--global-tomato-color);
@@ -239,6 +240,8 @@ body {
     @include flexCenter();
     margin-top: 1rem;
     .btn {
+      z-index: 1;
+
       position: relative;
       @include flexCenter();
       font-size: 2.5rem;

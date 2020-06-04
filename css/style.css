@@ -135,6 +135,7 @@ body {
 }
 
 .buttons-container .btn {
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -354,6 +355,7 @@ body {
 }
 
 .timer-container .timer-buttons .btn {
+  z-index: 1;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
