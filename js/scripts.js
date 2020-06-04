@@ -17,9 +17,9 @@ window.addEventListener("resize", () => {
   }
 });
 
-var pomodoroDefault = 2;
-var shortDefault = 1;
-var longDefault = 1;
+var pomodoroDefault = 25;
+var shortDefault = 5;
+var longDefault = 15;
 
 var pomodoroCustom = pomodoroDefault;
 var shortCustom = shortDefault;
@@ -232,7 +232,7 @@ var Clock = {
           $(".timer-seconds").html("0" + self.totalSeconds);
         }
       }
-    }, 20);
+    }, 1000);
   },
 
   pause: function () {
@@ -249,21 +249,21 @@ var Clock = {
       if (loopIndex == 0) {
         $(".progress-bar").addClass("progress-bar-animation");
         if (activeTimerButton == "loop") {
-          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("pomodoro-input").value) * 60 * 0.02 + "s";
+          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("pomodoro-input").value) * 60 + "s";
         } else {
-          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById(activeTimerButton + "-input").value) * 60 * 0.02 + "s";
+          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById(activeTimerButton + "-input").value) * 60 + "s";
         }
         document.getElementById("progress-bar").style.animationPlayState = "running";
       } else if (loopIndex == 1) {
         $(".progress-bar").removeClass("progress-bar-animation");
         $(".progress-bar").addClass("progress-bar-animation2");
-        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("short-input").value) * 60 * 0.02 + "s";
+        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("short-input").value) * 60 + "s";
         document.getElementById("progress-bar").style.animationPlayState = "running";
         loopIndex = 2;
       } else if (loopIndex == 3) {
         $(".progress-bar").removeClass("progress-bar-animation2");
         $(".progress-bar").addClass("progress-bar-animation");
-        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("pomodoro-input").value) * 60 * 0.02 + "s";
+        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("pomodoro-input").value) * 60 + "s";
         document.getElementById("progress-bar").style.animationPlayState = "running";
         pomodoroCount++;
         console.log(pomodoroCount);
@@ -275,7 +275,7 @@ var Clock = {
       } else if (loopIndex == 5) {
         $(".progress-bar").removeClass("progress-bar-animation");
         $(".progress-bar").addClass("progress-bar-animation2");
-        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("long-input").value) * 60 * 0.02 + "s";
+        document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("long-input").value) * 60 + "s";
         document.getElementById("progress-bar").style.animationPlayState = "running";
         loopIndex = 6;
       }
