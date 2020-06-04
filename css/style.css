@@ -400,14 +400,6 @@ body {
   opacity: 0;
 }
 
-.timer-container .timer-buttons .btn:hover {
-  background-color: var(--global-tomato-color);
-}
-
-.timer-container .timer-buttons .btn:hover .icon {
-  color: white;
-}
-
 .item-visible {
   opacity: 1 !important;
 }
