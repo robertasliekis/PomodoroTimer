@@ -1,67 +1,74 @@
-var browserHeight = 0;
+const pomodoroDefault = 25;
+const shortDefault = 5;
+const longDefault = 15;
 
-if (window.innerWidth > 1024) {
-  $(".website-container").height("100vh");
-}
-if (window.innerWidth <= 1024) {
-  $(".website-container").height(window.innerHeight - browserHeight);
-}
+let pomodoroCustom = pomodoroDefault;
+let shortCustom = shortDefault;
+let longCustom = longDefault;
 
-window.addEventListener("resize", () => {
+let timeAmount = pomodoroDefault;
+let timeAmountMinutes = timeAmount - 1;
+let timeAmountSeconds = timeAmount * 60;
+let secondsAmount = 60;
+
+let loopIndex = 0;
+let pomodoroCount = 0;
+
+let pomodoroOldValue = pomodoroDefault;
+let shortOldValue = shortDefault;
+let longOldValue = longDefault;
+
+let activeTimerButton = "loop";
+
+let alarmFinished = false;
+
+let alarmSound = new Audio("sounds/alarm.mp3");
+
+let resizeWindow = () => {
+  let browserHeight = 0;
+
   if (window.innerWidth > 1024) {
     $(".website-container").height("100vh");
-  }
-
-  if (window.innerWidth <= 1024) {
+  } else {
     $(".website-container").height(window.innerHeight - browserHeight);
   }
-});
 
-var pomodoroDefault = 25;
-var shortDefault = 5;
-var longDefault = 15;
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024) {
+      $(".website-container").height("100vh");
+    } else {
+      $(".website-container").height(window.innerHeight - browserHeight);
+    }
+  });
+};
 
-var pomodoroCustom = pomodoroDefault;
-var shortCustom = shortDefault;
-var longCustom = longDefault;
+let resetValues = () => {
+  document.getElementById("pomodoro-input").value = pomodoroDefault;
+  document.getElementById("short-input").value = shortDefault;
+  document.getElementById("long-input").value = longDefault;
+  loopIndex = 0;
+};
 
-var timeAmount = pomodoroDefault;
-var timeAmountMinutes = timeAmount - 1;
-var timeAmountSeconds = timeAmount * 60;
-var secondsAmount = 60;
-
-var loopIndex = 0;
-var pomodoroCount = 0;
-
-var pomodoroOldValue = pomodoroDefault;
-var shortOldValue = shortDefault;
-var longOldValue = longDefault;
-
-var activeTimerButton = "loop";
-
-var alarmFinished = false;
-
-var alarmSound = new Audio("sounds/alarm.mp3");
-
+resizeWindow();
 resetValues();
 
-function spinnerClick(direction, fieldName) {
-  $(".spinner-" + direction + "-" + fieldName).click(function () {
-    var fieldNumber = parseInt(document.getElementById(fieldName + "-input").value);
+let spinnerClick = (direction, fieldName) => {
+  $(`.spinner-${direction}-${fieldName}`).click(function () {
+    let fieldNumber = parseInt(document.getElementById(`${fieldName}-input`).value);
     if (/^\d+$/.test(document.getElementById("pomodoro-input").value) && fieldNumber > 0) {
       if (direction == "up") {
         fieldNumber++;
       } else if (fieldNumber > 1) {
         fieldNumber--;
       }
-      document.getElementById(fieldName + "-input").value = fieldNumber;
+      document.getElementById(`${fieldName}-input`).value = fieldNumber;
       oldValue = fieldNumber;
     } else {
       $(".alert-message-window").addClass("info-window-visible");
-      document.getElementById(fieldName + "-input").value = "";
+      document.getElementById(`${fieldName}-input`).value = "";
     }
   });
-}
+};
 
 $(".btn-cancel").click(function () {
   $(".custom-timer-window").removeClass("info-window-visible");
@@ -82,29 +89,35 @@ $(".btn-timer").click(function () {
   $(".btn-timer").removeClass("btn-clicked");
   $(this).addClass("btn-clicked");
   resetTimer();
+  let timerButtonsCount = 4;
   loopIndex = 0;
-  for (let i = 1; i <= 4; i++) {
-    if ($(this).hasClass("btn-timer" + i)) {
+  for (let i = 1; i <= timerButtonsCount; i++) {
+    if ($(this).hasClass(`btn-timer${i}`)) {
       $(".title").removeClass("title-visible");
-      $(".title" + i).addClass("title-visible");
+      $(`.title${i}`).addClass("title-visible");
     }
   }
-  if ($(this).hasClass("btn-timer1")) {
-    setTimer("pomodoro");
-  } else if ($(this).hasClass("btn-timer2")) {
-    setTimer("short");
-  } else if ($(this).hasClass("btn-timer3")) {
-    setTimer("long");
-  } else if ($(this).hasClass("btn-timer4")) {
-    setTimer("loop");
+  switch (true) {
+    case $(this).hasClass("btn-timer1"):
+      setTimer("pomodoro");
+      break;
+    case $(this).hasClass("btn-timer2"):
+      setTimer("short");
+      break;
+    case $(this).hasClass("btn-timer3"):
+      setTimer("long");
+      break;
+    case $(this).hasClass("btn-timer4"):
+      setTimer("loop");
+      break;
   }
 });
 
 function setTimer(type) {
   if (type != "loop") {
-    $(".timer-minutes").html(document.getElementById(type + "-input").value);
+    $(".timer-minutes").html(document.getElementById(`${type}-input`).value);
     $(".timer-seconds").html("00");
-    timeAmount = parseInt(document.getElementById(type + "-input").value);
+    timeAmount = parseInt(document.getElementById(`${type}-input`).value);
   } else {
     $(".timer-minutes").html(document.getElementById("pomodoro-input").value);
     $(".timer-seconds").html("00");
@@ -143,13 +156,6 @@ spinnerClick("down", "short");
 spinnerClick("up", "long");
 spinnerClick("down", "long");
 
-function resetValues() {
-  document.getElementById("pomodoro-input").value = pomodoroDefault;
-  document.getElementById("short-input").value = shortDefault;
-  document.getElementById("long-input").value = longDefault;
-  loopIndex = 0;
-}
-
 $(".btn-custom-timer").click(function () {
   $(".custom-timer-window").addClass("info-window-visible");
 });
@@ -158,14 +164,14 @@ $(".btn-okey").click(function () {
   $(".alert-message-window").removeClass("info-window-visible");
 });
 
-function timeStart() {
+let timeStart = () => {
   if (timeAmount >= 10) {
     $(".timer-minutes").html(timeAmount);
   } else {
     $(".timer-minutes").html("0" + timeAmount);
   }
   $(".timer-seconds").html("00");
-}
+};
 
 timeStart();
 
@@ -223,13 +229,13 @@ var Clock = {
         if (timeAmountMinutes >= 10) {
           $(".timer-minutes").html(self.totalMinutes);
         } else {
-          $(".timer-minutes").html("0" + self.totalMinutes);
+          $(".timer-minutes").html(`0${self.totalMinutes}`);
         }
 
         if (secondsAmount >= 10) {
           $(".timer-seconds").html(self.totalSeconds);
         } else {
-          $(".timer-seconds").html("0" + self.totalSeconds);
+          $(".timer-seconds").html(`0${self.totalSeconds}`);
         }
       }
     }, 1000);
@@ -251,7 +257,7 @@ var Clock = {
         if (activeTimerButton == "loop") {
           document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById("pomodoro-input").value) * 60 + "s";
         } else {
-          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById(activeTimerButton + "-input").value) * 60 + "s";
+          document.getElementById("progress-bar").style.animationDuration = parseInt(document.getElementById(`${activeTimerButton}-input`).value) * 60 + "s";
         }
         document.getElementById("progress-bar").style.animationPlayState = "running";
       } else if (loopIndex == 1) {
