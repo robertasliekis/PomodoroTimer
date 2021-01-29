@@ -708,6 +708,11 @@ body {
           transform: scale(0.53);
         }
       }
+      .timer-title {
+        .title {
+          font-size: 1.8rem;
+        }
+      }
     }
 
     .timer-buttons {

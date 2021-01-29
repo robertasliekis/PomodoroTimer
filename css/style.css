@@ -968,6 +968,9 @@ body {
     -webkit-transform: scale(0.53);
             transform: scale(0.53);
   }
+  .timer-container .timer-circle-container .timer-title .title {
+    font-size: 1.8rem;
+  }
   .timer-container .timer-buttons {
     margin-top: 0.3rem;
   }
