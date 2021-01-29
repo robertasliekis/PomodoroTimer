@@ -508,14 +508,15 @@ body {
     width: 100%;
     .timer-circle-container {
       .timer-circle {
-        height: 330px;
-        width: 330px;
+        height: 280px;
+        width: 280px;
         .progress-bar {
-          transform: scale(0.81);
+          transform: scale(0.69);
         }
       }
       .timer-count {
         top: 40%;
+        font-size: 4rem;
       }
       .timer-title {
         top: 60%;
@@ -660,10 +661,10 @@ body {
   .timer-container {
     .timer-circle-container {
       .timer-circle {
-        height: 300px;
-        width: 300px;
+        height: 250px;
+        width: 250px;
         .progress-bar {
-          transform: scale(0.73);
+          transform: scale(0.6);
         }
       }
     }
@@ -701,10 +702,10 @@ body {
   .timer-container {
     .timer-circle-container {
       .timer-circle {
-        height: 280px;
-        width: 280px;
+        height: 220px;
+        width: 220px;
         .progress-bar {
-          transform: scale(0.68);
+          transform: scale(0.53);
         }
       }
     }
